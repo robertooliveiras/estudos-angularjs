@@ -1,0 +1,130 @@
+<!DOCTYPE html >
+<html lang="en" ng-app="myapp" >
+<head >
+	<title >Lists Of Things</title >
+	<link href="../libs/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" >
+	<link href="main.css" rel="stylesheet" >
+</head >
+
+<body >
+<nav class="navbar navbar-inverse navbar-fixed-top" >
+	<div class="container" >
+		<div class="navbar-header" >
+			<a class="navbar-brand"
+			   href="/" >Lists Of Things
+			</a >
+		</div >
+	</div >
+</nav >
+
+<div class="container main-content" ng-controller="PersonsController" >
+
+    <div class="row">
+        
+        <div class="col-md-12">
+            <form class="form-inline well well-sm">
+                <span class="glyphicon glyphicon-search"></span>  
+
+                <div class="form-group">
+                    <input type="text"
+                           class="form-control"
+                           ng-model="search"
+                           placeholder="Search..." />
+                </div>
+                
+                <span class="glyphicon glyphicon-sort-by-attributes"></span>  
+                
+                <div class="form-group">
+                    <select class="form-control"
+                            ng-model="order" >
+                        <option value="name">Name (ASC)</option>
+                        <option value="-name">Name (DESC)</option>
+                        <option value="email">Email (ASC)</option>
+                        <option value="-email">Email (DESC)</option>
+                        <option value="birthdate">Birthdate (ASC)</option>
+                        <option value="-birthdate">Birthdate (DESC)</option>
+                    </select>
+                </div>
+                
+            </form>
+        </div>
+        
+    </div>
+
+    <div class="row">
+        <div class="col-md-8">
+
+	        <table class="table table-striped">
+
+		        <tr>
+			        <th>#</th>
+			        <th>Name
+			            <span ng-click="order='name'" class="glyphicon glyphicon-menu-up"></span>
+			            <span ng-click="order='-name'" class="glyphicon glyphicon-menu-down"></span>
+			        </th>
+			        <th>Email
+			            <span ng-click="order='email'" class="glyphicon glyphicon-menu-up"></span>
+			            <span ng-click="order='-email'" class="glyphicon glyphicon-menu-down"></span></th>
+			        <th>Birthday
+			            <span ng-click="order='birthdate'" class="glyphicon glyphicon-menu-up"></span>
+			            <span ng-click="order='-birthdate'" class="glyphicon glyphicon-menu-down"></span></th>
+		        </tr>
+
+		        <tr ng-repeat="person in persons | filter:sensitiveSearch | orderBy:order"
+                    ng-style="{
+                    'background-color': $index == selectedIndex ? 'lightgray' : ''
+                    }"
+                    ng-click="selectPerson(person, $index)">
+                    <td>{{ $index+1 }}</td>
+                    <td>{{ person.name }}</td>
+                    <td>{{ person.email }}</td>
+                    <td>{{ person.birthdate | date:"MMMM d" }}</td>
+		        </tr>
+
+	        </table>
+        
+        </div>
+        <div class="col-md-4">
+        
+            <div class="panel palnel-default" >
+                
+                <div class="panel-heading" >Details of the selected item</div>
+                <div class="panel-body" ng-show="selectedPerson" >
+                    
+                    <dl >
+                        <dt >Name</dt >
+                        <dd >{{selectedPerson.name}}</dt >
+                        <dt >Email</dt >
+                        <dd >{{selectedPerson.email}}</dt >
+                        <dt >Birthday</dt >
+                        <dd >{{selectedPerson.birthdate | date:"MMMM d"}}</dt >
+                        <dt >Phonenumber</dt >
+                        <dd >{{selectedPerson.phonenumber}}</dt >
+                        <dt >Address</dt >
+                        <dd >{{selectedPerson.address}}</dt >
+                        <dt >City</dt >
+                        <dd >{{selectedPerson.city}}</dt >
+                        <dt >Country</dt >
+                        <dd >{{selectedPerson.country}}</dt >
+                    </dl >
+                    
+                    
+                    
+                    
+                </div>    
+                
+            </div>
+            
+            <pre>{{ search }}</pre>
+        
+        </div>    
+    </div>
+
+
+</div >
+
+
+<script src="../libs/angular/angular.min.js" ></script >
+<script src="main.js" ></script >
+</body >
+</html >
