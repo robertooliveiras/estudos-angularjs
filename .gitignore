@@ -2,8 +2,11 @@
 .buildpath
 .project
 .classpath
+.tern-project
 build.xml
 manifest.mf
+.externalToolBuilders/
+.idea/
 nbproject/
 /build/
 /bin/
