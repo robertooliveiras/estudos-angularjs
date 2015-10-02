@@ -1,0 +1,19 @@
+Diretivas AngularJS:
+
+As diretivas do angular foram usadas diversas vezes no curso sem um foco no conceito. 
+Veja como utilizamos a tag <toaster-container></toaster-container> (add a partir da section 4 do código = section7 do curso )! 
+Isso é uma diretiva, talqua o uso da ui-view : <div ui-view="main"></div> (section 9)
+
+	A toaster pode ser observada no app.service, ela cria um elemento que aparece na tela como mensagem. ela usa a lib angularjs-toaster.
+	vem da https://github.com/jirikavi/AngularJS-Toaster
+	
+	A ui-view manipula as rotas e reinderiza os templates criados de modo reutilizavel 
+	
+	
+As diretivas servem para manipular o HTML de maneira genérica. Há uma necessidade de analizar a forma de uso das diretivas. 
+Decidir se vai utilizar diretivas ou ng controllers com templates. as diretivas permitem compartilhar.
+
+é necessário evitar que as controllers manipulem diretamente o html como ocorre muitas vezes quando o programador 
+usa a jquery dentro de uma controller do angularjs para manipular o DOM.
+
+
