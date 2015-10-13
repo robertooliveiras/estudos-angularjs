@@ -22,7 +22,7 @@ app.config(function ($stateProvider, $urlRouterProvider) {
 				'search': {
 					templateUrl: 'templates/searchform.html',
 					controller: 'PersonListController'
-				}
+				},
 			}
 		})
 		.state('edit', {
