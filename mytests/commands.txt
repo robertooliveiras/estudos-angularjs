@@ -1,0 +1,16 @@
+# https://github.com/nervgh/angular-file-upload
+# opcao de file upload:
+# bower install angular-file-upload
+
+# https://github.com/danialfarid/ng-file-upload
+# opcao de file upload:
+# bower install ng-file-upload --save
+
+# https://github.com/flowjs/ng-flow
+# opcao de file upload:
+# bower install ng-flow#~2
+
+
+
+
+
